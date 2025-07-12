@@ -90,6 +90,7 @@ public class Test1 extends Base
 			Assert.assertEquals(multiplierValue,"0.99x","Multiplier Value is 0.99X, Test Case Passed for Multiplier Value");
 			Assert.assertEquals(profitAmount,"1.97","Profit Amount is 1.97,Test Case Passed for Profit Amount");
 			minesgamepage.click_MyBetsButton();
+			System.out.println("My bet Button Clicked");
 			
 		}
 		
