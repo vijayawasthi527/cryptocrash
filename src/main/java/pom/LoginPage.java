@@ -54,23 +54,33 @@ public class LoginPage {
 		return signInTab.getAttribute("aria-selected").equals("false");
 	}
 	
-	public void enter_Emailadress() 
-	{
+		
+	public void login(String username, String passwd) {
 		wait.until(ExpectedConditions.visibilityOf(emailAddress));
-		emailAddress.sendKeys("vinton@aistechnolabs.com");
-	}
-	
-	public void enter_Password()
-	{
-		wait.until(ExpectedConditions.visibilityOf(emailAddress));
-		password.sendKeys("Test@1234");
-	}
-	
-	public void click_SignINButton()
-	{
+		emailAddress.sendKeys(username);
+		wait.until(ExpectedConditions.visibilityOf(password));
+		password.sendKeys(passwd);
 		wait.until(ExpectedConditions.visibilityOf(signInButton));
 		signInButton.click();
-		
-	}
+    }
+	
+//	public void enter_Emailadress() 
+//	{
+//		wait.until(ExpectedConditions.visibilityOf(emailAddress));
+//		emailAddress.sendKeys("vinton@aistechnolabs.com");
+//	}
+//	
+//	public void enter_Password()
+//	{
+//		wait.until(ExpectedConditions.visibilityOf(emailAddress));
+//		password.sendKeys("Test@1234");
+//	}
+//	
+//	public void click_SignINButton()
+//	{
+//		wait.until(ExpectedConditions.visibilityOf(signInButton));
+//		signInButton.click();
+//		
+//	}
 
 }

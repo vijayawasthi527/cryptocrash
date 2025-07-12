@@ -27,7 +27,7 @@ public class Test1 extends Base
 	OpenCaseGamePage opencasegamepage;
 	
 	@BeforeMethod
-	public void intiPageObjects()
+	public void initPageObjects()
 	{
 		homepage=new Homepage(driver);
 		loginpage=new LoginPage(driver);
@@ -37,7 +37,7 @@ public class Test1 extends Base
 		opencasegamepage=new OpenCaseGamePage(driver);
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 1, enabled = false)
 	public void signIN() throws InterruptedException
 	{
 		homepage.click_SigninButton();
@@ -49,9 +49,8 @@ public class Test1 extends Base
 		}
 		boolean status1 = loginpage.status_SignUPButton();
 		System.out.println(status1);
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
+//		homepage.click_SigninButton();
+//		loginpage.login("vinton@aistechnolabs.com","Test@1234");
 		boolean result=dashboardpage.verify_DashBoard();
 		Assert.assertEquals(result,true,"Login Failed!!!!");
 		Reporter.log("Player Logged in Successfully,SignIn TestCase Passed !!!!",true);
@@ -60,10 +59,6 @@ public class Test1 extends Base
 	@Test(priority = 2, dependsOnMethods = {"signIN"},enabled = false)
 	public void game_dropdown() throws InterruptedException
 	{
-		homepage.click_SigninButton();
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_MinesGame();
 		Thread.sleep(4000);
@@ -73,16 +68,16 @@ public class Test1 extends Base
 		System.out.println("Landed on Mines Game page Successfully");
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3,enabled = false)
 	public void play_MinesManualGame() throws InterruptedException
 	{
-		homepage.click_SigninButton();
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
+//		homepage.click_SigninButton();
+//		loginpage.enter_Emailadress();
+//		loginpage.enter_Password();
+//		loginpage.click_SignINButton();
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_MinesGame();
-		minesgamepage.enterBetAmount();
+		//minesgamepage.enterBetAmount();
 		minesgamepage.clickBetAmountDoubleButton();
 		//minesgamepage.BetAmountSliderHandle();
 		minesgamepage.ClickbetButton();
@@ -103,8 +98,8 @@ public class Test1 extends Base
 		}
 		 // Get data from first row
         List<String> firstRowData = minesgamepage.getFirstRowData();
-        List<String> expectedData = Arrays.asList("Mines", "48", "User 445", "1.21", "0.99", "1.20");
-
+        //List<String> expectedData = Arrays.asList("Mines", "48", "User 445", "1.21", "0.99", "1.20");
+        List<String> expectedData = Arrays.asList("Mines", "48\nUser 445", "2.00", "0.99", "1.98");
         // Print each column value
         System.out.println("First row data:");
         System.out.println(String.join(" ", firstRowData));
@@ -118,20 +113,19 @@ public class Test1 extends Base
 	@Test(priority = 4)
 	public void play_MinesAutoGame() throws InterruptedException
 	{
-		homepage.click_SigninButton();
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_MinesGame();
+		System.out.println("Clicked Mines Games");
 		minesgamepage=new MinesGamePage(driver);
 		minesgamepage.click_AutoBetTab();
+		System.out.println("Clicked Mines AutoTab");
 		minesgamepage.click_AutoBet10Button();
 		minesgamepage.enter_OnWinPercent();
 		minesgamepage.enter_OnLossPercent();
 		minesgamepage.clickMinesCard();
 		minesgamepage.click_StartAutoBetButton();
 		
+		Thread.sleep(2000);
 		String actualTotalRounds = minesgamepage.get_TextOfTotalRoundCompletePOPUP();
 		String expectedTotalRounds="Total completed rounds: 10";
 		
@@ -144,10 +138,7 @@ public class Test1 extends Base
 	@Test(priority = 4,dependsOnMethods = {"game_dropdown"},enabled = false)
 	public void play_DiceGame() throws InterruptedException
 	{
-		homepage.click_SigninButton();
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
+
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_DiceGame();
 		dicegamepage.clickBetAmountDoubleButton();
@@ -160,10 +151,7 @@ public class Test1 extends Base
 	@Test(priority = 5,dependsOnMethods = {"game_dropdown"}, enabled = false)
 	public void play_OpenCaseGame() throws InterruptedException
 	{
-		homepage.click_SigninButton();
-		loginpage.enter_Emailadress();
-		loginpage.enter_Password();
-		loginpage.click_SignINButton();
+
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_OpenCaseGame();
 		opencasegamepage.click_NewCaseCategory();

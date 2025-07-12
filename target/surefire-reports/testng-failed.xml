@@ -5,9 +5,8 @@
     <classes>
       <class name="test.Test1">
         <methods>
-          <include name="play_MinesManualGame"/>
           <include name="launchCryptocrash"/>
-          <include name="intiPageObjects"/>
+          <include name="initPageObjects"/>
           <include name="play_MinesAutoGame"/>
           <include name="closeCryptocrash"/>
         </methods>
