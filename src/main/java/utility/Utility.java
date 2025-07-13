@@ -22,7 +22,7 @@ public class Utility {
 		Reporter.log("Taking ScreenShot",true);
 		String timeStamp=new SimpleDateFormat("dd.MM.yyyy.HH.mm.ss").format(new Date());
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File dest=new File("C:\\Users\\vijay\\Desktop\\GGBit\\cryptoCrash"+TCID+"_"+timeStamp+".png");
+		File dest=new File(System.getProperty("user.dir")+ "\\screenshots\\cryptoCrash" + TCID + "_" + timeStamp + ".png");
 		Reporter.log("Saved ScreenShot at"+dest,true);
 		FileHandler.copy(src, dest);
 	}

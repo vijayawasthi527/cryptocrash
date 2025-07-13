@@ -8,7 +8,11 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.mongodb.diagnostics.logging.Logger;
+
 import base.Base;
 import pom.DashboardPage;
 import pom.DiceGamePage;
@@ -17,6 +21,7 @@ import pom.LoginPage;
 import pom.MinesGamePage;
 import pom.OpenCaseGamePage;
 
+@Listeners(listners.Listenercryptocrash.class)
 public class Test1 extends Base
 {
 	Homepage homepage;	
@@ -49,14 +54,12 @@ public class Test1 extends Base
 		}
 		boolean status1 = loginpage.status_SignUPButton();
 		System.out.println(status1);
-//		homepage.click_SigninButton();
-//		loginpage.login("vinton@aistechnolabs.com","Test@1234");
 		boolean result=dashboardpage.verify_DashBoard();
 		Assert.assertEquals(result,true,"Login Failed!!!!");
 		Reporter.log("Player Logged in Successfully,SignIn TestCase Passed !!!!",true);
 	}
 	
-	@Test(priority = 2, dependsOnMethods = {"signIN"},enabled = false)
+	@Test(priority = 2)
 	public void game_dropdown() throws InterruptedException
 	{
 		dashboardpage.click_GamesDropdown();
@@ -68,13 +71,9 @@ public class Test1 extends Base
 		System.out.println("Landed on Mines Game page Successfully");
 	}
 	
-	@Test(priority = 3,enabled = false)
+	@Test(priority = 3)
 	public void play_MinesManualGame() throws InterruptedException
 	{
-//		homepage.click_SigninButton();
-//		loginpage.enter_Emailadress();
-//		loginpage.enter_Password();
-//		loginpage.click_SignINButton();
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_MinesGame();
 		//minesgamepage.enterBetAmount();
@@ -90,7 +89,7 @@ public class Test1 extends Base
 			Assert.assertEquals(multiplierValue,"0.99x","Multiplier Value is 0.99X, Test Case Passed for Multiplier Value");
 			Assert.assertEquals(profitAmount,"1.97","Profit Amount is 1.97,Test Case Passed for Profit Amount");
 			minesgamepage.click_MyBetsButton();
-			System.out.println("My bet Button Clicked");
+			
 			
 		}
 		
@@ -118,6 +117,7 @@ public class Test1 extends Base
 		dashboardpage.click_MinesGame();
 		System.out.println("Clicked Mines Games");
 		minesgamepage=new MinesGamePage(driver);
+		Thread.sleep(3000);
 		minesgamepage.click_AutoBetTab();
 		System.out.println("Clicked Mines AutoTab");
 		minesgamepage.click_AutoBet10Button();
@@ -136,7 +136,7 @@ public class Test1 extends Base
 		
 	}
 	
-	@Test(priority = 4,dependsOnMethods = {"game_dropdown"},enabled = false)
+	@Test(priority = 5,dependsOnMethods = {"game_dropdown"},enabled = false)
 	public void play_DiceGame() throws InterruptedException
 	{
 
@@ -149,7 +149,7 @@ public class Test1 extends Base
 	}
 	
 	
-	@Test(priority = 5,dependsOnMethods = {"game_dropdown"}, enabled = false)
+	@Test(priority = 6,dependsOnMethods = {"game_dropdown"},enabled = false)
 	public void play_OpenCaseGame() throws InterruptedException
 	{
 

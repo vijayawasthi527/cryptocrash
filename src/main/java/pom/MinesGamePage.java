@@ -201,5 +201,29 @@ public class MinesGamePage {
 		    return rowData;
 		}
 	  
+//	  public List<String> getFirstRowData() throws InterruptedException {
+//		    ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 400);");
+//		    Thread.sleep(300);
+//
+//		    List<String> rowData = new ArrayList<>();
+//
+//		    // Locate the table and first row
+//		    WebElement firstRow = driver.findElement(By.cssSelector("table tr")); // first tr
+//
+//		    // Get cells (could be <td> or <th> depending on structure)
+//		    List<WebElement> firstRowCells = firstRow.findElements(By.xpath("./td | ./th"));
+//
+//		    for (WebElement cell : firstRowCells) {
+//		        try {
+//		            WebElement innerDiv = cell.findElement(By.tagName("div"));
+//		            rowData.add(innerDiv.getText().trim());
+//		        } catch (NoSuchElementException e) {
+//		            rowData.add(cell.getText().trim()); // fallback to cell text
+//		        }
+//		    }
+//
+//		    return rowData;
+//		}
+	  
 	  
 }
