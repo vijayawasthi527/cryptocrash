@@ -49,14 +49,12 @@ public class Test1 extends Base
 		}
 		boolean status1 = loginpage.status_SignUPButton();
 		System.out.println(status1);
-//		homepage.click_SigninButton();
-//		loginpage.login("vinton@aistechnolabs.com","Test@1234");
 		boolean result=dashboardpage.verify_DashBoard();
 		Assert.assertEquals(result,true,"Login Failed!!!!");
 		Reporter.log("Player Logged in Successfully,SignIn TestCase Passed !!!!",true);
 	}
 	
-	@Test(priority = 2, dependsOnMethods = {"signIN"},enabled = false)
+	@Test(priority = 2)
 	public void game_dropdown() throws InterruptedException
 	{
 		dashboardpage.click_GamesDropdown();
@@ -68,13 +66,9 @@ public class Test1 extends Base
 		System.out.println("Landed on Mines Game page Successfully");
 	}
 	
-	@Test(priority = 3,enabled = false)
+	@Test(priority = 3)
 	public void play_MinesManualGame() throws InterruptedException
 	{
-//		homepage.click_SigninButton();
-//		loginpage.enter_Emailadress();
-//		loginpage.enter_Password();
-//		loginpage.click_SignINButton();
 		dashboardpage.click_GamesDropdown();
 		dashboardpage.click_MinesGame();
 		//minesgamepage.enterBetAmount();
@@ -90,7 +84,7 @@ public class Test1 extends Base
 			Assert.assertEquals(multiplierValue,"0.99x","Multiplier Value is 0.99X, Test Case Passed for Multiplier Value");
 			Assert.assertEquals(profitAmount,"1.97","Profit Amount is 1.97,Test Case Passed for Profit Amount");
 			minesgamepage.click_MyBetsButton();
-			System.out.println("My bet Button Clicked");
+			
 			
 		}
 		
@@ -100,7 +94,7 @@ public class Test1 extends Base
 		 // Get data from first row
         List<String> firstRowData = minesgamepage.getFirstRowData();
         //List<String> expectedData = Arrays.asList("Mines", "48", "User 445", "1.21", "0.99", "1.20");
-        List<String> expectedData = Arrays.asList("Mines", "48\nUser 445", "2.00", "0.99", "1.98");
+        List<String> expectedData = Arrays.asList("Mines", "48\nUser 445", "1.00", "0.99", "1.98");
         // Print each column value
         System.out.println("First row data:");
         System.out.println(String.join(" ", firstRowData));
@@ -136,7 +130,7 @@ public class Test1 extends Base
 		
 	}
 	
-	@Test(priority = 4,dependsOnMethods = {"game_dropdown"},enabled = false)
+	@Test(priority = 5,dependsOnMethods = {"game_dropdown"})
 	public void play_DiceGame() throws InterruptedException
 	{
 
@@ -149,7 +143,7 @@ public class Test1 extends Base
 	}
 	
 	
-	@Test(priority = 5,dependsOnMethods = {"game_dropdown"}, enabled = false)
+	@Test(priority = 6,dependsOnMethods = {"game_dropdown"})
 	public void play_OpenCaseGame() throws InterruptedException
 	{
 

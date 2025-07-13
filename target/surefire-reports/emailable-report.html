@@ -9,10 +9,41 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">54,227</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">114,274</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">test.Test1</td><td><a href="#m0">play_MinesAutoGame</a></td><td rowspan="1">1752298928407</td><td rowspan="1">42210</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">test.Test1</td><td><a href="#m0">play_MinesAutoGame</a></td><td rowspan="1">1752329086406</td><td rowspan="1">5340</td></tr><tr class="failedeven"><td><a href="#m1">play_MinesManualGame</a></td><td rowspan="1">1752329054654</td><td rowspan="1">22289</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">test.Test1</td><td><a href="#m2">game_dropdown</a></td><td rowspan="1">1752329033494</td><td rowspan="1">8339</td></tr><tr class="passedeven"><td><a href="#m3">play_DiceGame</a></td><td rowspan="1">1752329102168</td><td rowspan="1">9921</td></tr><tr class="passedeven"><td><a href="#m4">play_OpenCaseGame</a></td><td rowspan="1">1752329122608</td><td rowspan="1">8676</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">test.Test1#play_MinesAutoGame</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">test.Test1#play_MinesAutoGame</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.101)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a9c392094c794df1388d7dfd0c0f3516, clickElement {id=f.A10B7819450E5B1414B5C2799AAB6E38.d.AC8C64407016A84660123F5D38F42439.e.86}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.101, chrome: {chromedriverVersion: 138.0.7204.94 (545025748884..., userDataDir: C:\Users\vijay\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:31784}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:31784/devtoo..., se:cdpVersion: 138.0.7204.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a9c392094c794df1388d7dfd0c0f3516)] -&gt; xpath: (//li[@class=&apos;nav-item&apos;])[2]/button]
+Session ID: a9c392094c794df1388d7dfd0c0f3516
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.click(Unknown Source)
+	at pom.MinesGamePage.click_AutoBetTab(MinesGamePage.java:147)
+	at test.Test1.play_MinesAutoGame(Test1.java:115)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 39 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">test.Test1#play_MinesManualGame</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">Mines Game Played Successfully</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Mismatch at column 1 expected [Mines] but found [Opencase]
+	at test.Test1.play_MinesManualGame(Test1.java:102)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">test.Test1#game_dropdown</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">Dropdown Working Properly & Player landed on Mines Game Page</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">test.Test1#play_DiceGame</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">Dice Game Played Sucessfully</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">test.Test1#play_OpenCaseGame</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">OpenCase Game Played Successfully</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
