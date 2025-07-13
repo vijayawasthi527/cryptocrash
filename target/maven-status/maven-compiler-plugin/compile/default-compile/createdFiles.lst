@@ -2,7 +2,9 @@ pom\LoginPage.class
 utility\Utility.class
 pom\Homepage.class
 pom\DiceGamePage.class
+listners\ExtentReporterNG.class
 pom\DashboardPage.class
 pom\OpenCaseGamePage.class
 base\Base.class
+listners\Listenercryptocrash.class
 pom\MinesGamePage.class

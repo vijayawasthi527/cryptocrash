@@ -10,6 +10,9 @@ import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.mongodb.diagnostics.logging.Logger;
+
 import base.Base;
 import pom.DashboardPage;
 import pom.DiceGamePage;
@@ -114,6 +117,7 @@ public class Test1 extends Base
 		dashboardpage.click_MinesGame();
 		System.out.println("Clicked Mines Games");
 		minesgamepage=new MinesGamePage(driver);
+		Thread.sleep(3000);
 		minesgamepage.click_AutoBetTab();
 		System.out.println("Clicked Mines AutoTab");
 		minesgamepage.click_AutoBet10Button();

@@ -26,8 +26,9 @@ public class Listenercryptocrash extends Base implements ITestListener
 	public void onTestSuccess(ITestResult result) 
 	{
 		try {
-			Utility.takeScreenShot(driver,result.getName());
-		} catch (IOException e) {
+			//Utility.takeScreenShot(driver,result.getName());
+			
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
