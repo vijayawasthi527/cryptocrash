@@ -42,22 +42,22 @@ public class Test1 extends Base
 		opencasegamepage=new OpenCaseGamePage(driver);
 	}
 	
-	@Test(priority = 1, enabled = false)
-	public void signIN() throws InterruptedException
-	{
-		homepage.click_SigninButton();
-		
-		boolean statusSignInButton = loginpage.status_SignINButton();
-		if(!(statusSignInButton))
-		{
-			loginpage.click_SignInButton();
-		}
-		boolean status1 = loginpage.status_SignUPButton();
-		System.out.println(status1);
-		boolean result=dashboardpage.verify_DashBoard();
-		Assert.assertEquals(result,true,"Login Failed!!!!");
-		Reporter.log("Player Logged in Successfully,SignIn TestCase Passed !!!!",true);
-	}
+//	@Test(priority = 1)
+//	public void signIN() throws InterruptedException
+//	{
+//		homepage.click_SigninButton();
+//		
+//		boolean statusSignInButton = loginpage.status_SignINButton();
+//		if(!(statusSignInButton))
+//		{
+//			loginpage.click_SignInButton();
+//		}
+//		boolean status1 = loginpage.status_SignUPButton();
+//		System.out.println(status1);
+//		boolean result=dashboardpage.verify_DashBoard();
+//		Assert.assertEquals(result,true,"Login Failed!!!!");
+//		Reporter.log("Player Logged in Successfully,SignIn TestCase Passed !!!!",true);
+//	}
 	
 	@Test(priority = 2)
 	public void game_dropdown() throws InterruptedException
@@ -136,7 +136,7 @@ public class Test1 extends Base
 		
 	}
 	
-	@Test(priority = 5,dependsOnMethods = {"game_dropdown"},enabled = false)
+	@Test(priority = 5,dependsOnMethods = {"game_dropdown"})
 	public void play_DiceGame() throws InterruptedException
 	{
 
@@ -149,7 +149,7 @@ public class Test1 extends Base
 	}
 	
 	
-	@Test(priority = 6,dependsOnMethods = {"game_dropdown"},enabled = false)
+	@Test(priority = 6,dependsOnMethods = {"game_dropdown"})
 	public void play_OpenCaseGame() throws InterruptedException
 	{
 

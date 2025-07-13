@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="test.Test1" class="method navigator-link" hash-for-method="play_MinesManualGame">play_MinesManualGame</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -108,12 +122,17 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="test.Test1" class="method navigator-link" hash-for-method="play_DiceGame">play_DiceGame</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="test.Test1" class="method navigator-link" hash-for-method="play_MinesAutoGame">play_MinesAutoGame</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="test.Test1" class="method navigator-link" hash-for-method="play_MinesManualGame">play_MinesManualGame</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="test.Test1" class="method navigator-link" hash-for-method="play_OpenCaseGame">play_OpenCaseGame</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -128,6 +147,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">test.Test1</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="play_MinesManualGame">
+                  </a> <!-- play_MinesManualGame -->
+                  <span class="method-name">play_MinesManualGame</span>
+                  <div class="stack-trace">java.lang.AssertionError: Mismatch at column 1 expected [Mines] but found [Dice]
+	at test.Test1.play_MinesManualGame(Test1.java:107)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 36 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -143,6 +182,13 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
+                  <a name="play_DiceGame">
+                  </a> <!-- play_DiceGame -->
+                  <span class="method-name">play_DiceGame</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="play_MinesAutoGame">
                   </a> <!-- play_MinesAutoGame -->
                   <span class="method-name">play_MinesAutoGame</span>
@@ -150,9 +196,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="play_MinesManualGame">
-                  </a> <!-- play_MinesManualGame -->
-                  <span class="method-name">play_MinesManualGame</span>
+                  <a name="play_OpenCaseGame">
+                  </a> <!-- play_OpenCaseGame -->
+                  <span class="method-name">play_OpenCaseGame</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -209,19 +255,27 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'play_MinesAutoGame')
 data.setCell(0, 2, 'test.Test1')
-data.setCell(0, 3, 44375);
+data.setCell(0, 3, 44323);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'play_MinesManualGame')
 data.setCell(1, 2, 'test.Test1')
-data.setCell(1, 3, 22173);
+data.setCell(1, 3, 22272);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'game_dropdown')
+data.setCell(2, 1, 'play_DiceGame')
 data.setCell(2, 2, 'test.Test1')
-data.setCell(2, 3, 7850);
+data.setCell(2, 3, 10144);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'play_OpenCaseGame')
+data.setCell(3, 2, 'test.Test1')
+data.setCell(3, 3, 8581);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'game_dropdown')
+data.setCell(4, 2, 'test.Test1')
+data.setCell(4, 3, 8311);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -244,29 +298,32 @@ return data;
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
+              <span class="reporter-method-name">play_OpenCaseGame</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">OpenCase Game Played Successfully</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">play_DiceGame</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Dice Game Played Sucessfully</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
               <span class="reporter-method-name">play_MinesManualGame</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output">Mines Game Played Successfully</span>
+                <span class="reporter-method-output">Taking ScreenShot</span>
+                <span class="reporter-method-output">Saved ScreenShot atC:\Users\vijay\eclipse-workspace\info.cryptocrash\screenshots\cryptoCrashplay_MinesManualGame_13.07.2025.18.44.53.png</span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">test.Test1</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">signIN</span>
-                <br/>
-                <span class="ignored-method-name">play_DiceGame</span>
-                <br/>
-                <span class="ignored-method-name">play_OpenCaseGame</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -282,47 +339,81 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPageObjects</span>
-                <span class="method-start">10016 ms</span>
+                <span class="method-start">10205 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">game_dropdown</span>
-                <span class="method-start">10058 ms</span>
+                <span class="method-start">10256 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeCryptocrash</span>
-                <span class="method-start">17911 ms</span>
+                <span class="method-start">18575 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchCryptocrash</span>
-                <span class="method-start">19376 ms</span>
+                <span class="method-start">20010 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPageObjects</span>
-                <span class="method-start">29417 ms</span>
+                <span class="method-start">28785 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">play_MinesManualGame</span>
-                <span class="method-start">29427 ms</span>
+                <span class="method-start">28790 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeCryptocrash</span>
-                <span class="method-start">51601 ms</span>
+                <span class="method-start">51422 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchCryptocrash</span>
-                <span class="method-start">53063 ms</span>
+                <span class="method-start">52826 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPageObjects</span>
-                <span class="method-start">62272 ms</span>
+                <span class="method-start">63028 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">play_MinesAutoGame</span>
-                <span class="method-start">62274 ms</span>
+                <span class="method-start">63036 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeCryptocrash</span>
-                <span class="method-start">106650 ms</span>
+                <span class="method-start">107361 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchCryptocrash</span>
+                <span class="method-start">108834 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">initPageObjects</span>
+                <span class="method-start">117838 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">play_DiceGame</span>
+                <span class="method-start">117841 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">closeCryptocrash</span>
+                <span class="method-start">127991 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchCryptocrash</span>
+                <span class="method-start">129484 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">initPageObjects</span>
+                <span class="method-start">140377 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">play_OpenCaseGame</span>
+                <span class="method-start">140381 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">closeCryptocrash</span>
+                <span class="method-start">148963 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
