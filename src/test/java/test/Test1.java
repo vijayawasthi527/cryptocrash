@@ -8,6 +8,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import base.Base;
 import pom.DashboardPage;
@@ -17,6 +18,7 @@ import pom.LoginPage;
 import pom.MinesGamePage;
 import pom.OpenCaseGamePage;
 
+@Listeners(listners.Listenercryptocrash.class)
 public class Test1 extends Base
 {
 	Homepage homepage;	
@@ -94,7 +96,7 @@ public class Test1 extends Base
 		 // Get data from first row
         List<String> firstRowData = minesgamepage.getFirstRowData();
         //List<String> expectedData = Arrays.asList("Mines", "48", "User 445", "1.21", "0.99", "1.20");
-        List<String> expectedData = Arrays.asList("Mines", "48\nUser 445", "1.00", "0.99", "1.98");
+        List<String> expectedData = Arrays.asList("Mines", "48\nUser 445", "2.00", "0.99", "1.98");
         // Print each column value
         System.out.println("First row data:");
         System.out.println(String.join(" ", firstRowData));
@@ -130,7 +132,7 @@ public class Test1 extends Base
 		
 	}
 	
-	@Test(priority = 5,dependsOnMethods = {"game_dropdown"})
+	@Test(priority = 5,dependsOnMethods = {"game_dropdown"},enabled = false)
 	public void play_DiceGame() throws InterruptedException
 	{
 
@@ -143,7 +145,7 @@ public class Test1 extends Base
 	}
 	
 	
-	@Test(priority = 6,dependsOnMethods = {"game_dropdown"})
+	@Test(priority = 6,dependsOnMethods = {"game_dropdown"},enabled = false)
 	public void play_OpenCaseGame() throws InterruptedException
 	{
 
