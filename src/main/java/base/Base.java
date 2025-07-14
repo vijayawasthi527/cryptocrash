@@ -18,7 +18,17 @@ public class Base {
 	@BeforeMethod
 	public void launchCryptocrash() throws InterruptedException
 	{
-		driver=new ChromeDriver();
+		 Path tempProfile = Files.createTempDirectory("chrome-user-data");
+
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("/usr/bin/google-chrome");
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        // This is the crucial line
+        options.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath().toString());
+		driver=new ChromeDriver(options);
 		driver.manage().window().maximize();
 		Reporter.log("Launching Browser",true);
 		driver.get("https://cryptocrash.aistechnolabs.info/");
